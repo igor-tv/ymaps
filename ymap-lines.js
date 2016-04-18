@@ -18,6 +18,11 @@ function init() {
     
     myCollection.add(new ymaps.GeoObject({geometry: {type: "LineString", coordinates: [mCenter,[59.5,cLon]]}})); // низ
     myCollection.add(new ymaps.GeoObject({geometry: {type: "LineString", coordinates: [mCenter,[60.5,cLon]]}})); //верх
+    
+    // отрисовка линий в цикле (правый верхний сектор)
+    for (var i = 0, l = 12; i < l; i++) {
+        myCollection.add(new ymaps.GeoObject({geometry: {type: "LineString", coordinates: [mCenter,[60.5 - i*0.05 ,cLon + i*0.1]]}})); 
+    }
 
     // Добавляем линии на карту.
     myMap.geoObjects
